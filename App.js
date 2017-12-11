@@ -1,57 +1,63 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
+import React from 'react';
+import { View, Text, Button, StyleSheet, Image } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
-import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+const HomeScreen = ({ navigation }) => (
+    <View>
+        <Text style={styles.baseText}>Karolis Petrauskas</Text>
+        
+        <View>
+        
+            <Image
+          style={{width: 200, height: 200}}
+          source={{uri: 'https://smhttp-ssl-33667.nexcesscdn.net/manual/wp-content/uploads/2016/02/oval-face-shape-1.jpg'}}
+        />
+            
+        </View>
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
+        <View style={{ flex: 0, alignItems: 'center', justifyContent: 'flex-start' }}>
+            <Button
+                onPress={() => navigation.navigate('Details')}
+                title="Go to details"
+                />
+        </View>
+        
+        
+    </View>
+);
+
+const DetailsScreen = () => (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Details Screen</Text>
+    </View>
+);
+
+const RootNavigator = StackNavigator({
+    Home: {
+        screen: HomeScreen,
+        navigationOptions: {
+            headerTitle: 'Pradinis langas',
+        },
+    },
+    Details: {
+        screen: DetailsScreen,
+        navigationOptions: {
+            headerTitle: 'Darbai',
+        },
+    },
 });
-
-export default class App extends Component<{}> {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
-      </View>
-    );
-  }
-}
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+    baseText: {
+        fontFamily: 'Cochin',
+        fontSize: 40,
+        textAlign: 'center',
+        
+    },
+    titleText: {
+        fontSize: 20,
+        fontWeight: 'bold',
+    },
 });
+
+export default RootNavigator;
