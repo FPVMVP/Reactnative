@@ -36,7 +36,7 @@ const RootNavigator = StackNavigator({
     Home: {
         screen: HomeScreen,
         navigationOptions: {
-            headerTitle: 'Pradinis langass',
+            headerTitle: 'Pradinis langas',
         },
     },
     Details: {
