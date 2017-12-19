@@ -26,6 +26,24 @@ const HomeScreen = ({ navigation }) => (
     </View>
 );
 
+componentDidMount() {
+ 
+   return fetch('')
+     .then((response) => response.json())
+     .then((responseJson) => {
+       let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+       this.setState({
+         isLoading: false,
+         dataSource: ds.cloneWithRows(responseJson),
+       }, function() {
+         // In this block you can do something with new state.
+       });
+     })
+     .catch((error) => {
+       console.error(error);
+     });
+ }
+
 const DetailsScreen = () => (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text>Details Screen</Text>
