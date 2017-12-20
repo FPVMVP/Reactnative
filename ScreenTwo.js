@@ -19,6 +19,9 @@ class ScreenTwo extends Component {
                 <Text style={styles.titleText}>Pardavimu vadybininkas nuo 2016/06/08</Text>
                 <Text style={styles.baseText}>Fanierke</Text>
                 <Text style={styles.titleText}>Visu galu meistras 2014/2015</Text>
+                
+                <Text style={styles.base2}>Issilavinimas</Text>
+                <Text style={styles.title2}>Vilniaus kolegija 2015/09/01 iki dabar</Text>
             </View>
         );
     }
