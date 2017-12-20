@@ -38,9 +38,20 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     imagetext: {
-        
+
         width: 400, 
         height: 400
+    },
+    base2: {
+        fontFamily: 'Cochin',
+        fontSize: 30,
+        textAlign: 'justify'
+
+    },
+    title2: {
+        fontSize: 15,
+        textAlign: 'justify',
+        fontWeight: 'bold'
     }
 });
 
